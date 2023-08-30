@@ -1,4 +1,5 @@
 const form = document.querySelector("#form");
+const input = document.querySelector("#input");
 const list = document.querySelector('.list')
 const template = document.querySelector("#template").content;
 const fragment = document.createDocumentFragment()
@@ -81,6 +82,13 @@ function btnAction(e) {
 
   if (e.target.classList.contains('fa-rotate-left')) {
     tasks[e.target.dataset.id].status = false
+    paintTasks()
+  }
+
+  if (e.target.classList.contains('fa-pen')) {
+    input.value = tasks[e.target.dataset.id].text
+    input.focus()
+    delete tasks[e.target.dataset.id]
     paintTasks()
   }
 
